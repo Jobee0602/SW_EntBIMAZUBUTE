@@ -9,6 +9,11 @@ public class StackArray<T> {
     private int size;
     private int curIndex;//Index of next spot
 
+    /**
+     * Initialzies a new StackArray, with given size
+     * @param pSize The length of the array
+     * @exception IllegalArgumentException if size is negative
+     */
     public StackArray(int pSize) {
         if(pSize >= 0){
             curIndex = 0;
@@ -20,6 +25,11 @@ public class StackArray<T> {
         }
     }
 
+    /**
+     * Pushes a Object T onto the stack
+     * @param x Object to push
+     * @exception IllegalStateException if the Array is already full
+     */
     public void push(T x) {
         System.out.println(array.length);
         if(curIndex == size){
@@ -31,6 +41,11 @@ public class StackArray<T> {
         }
     }
 
+    /**
+     * Pops/Remvoes and returns the upper object of the stack
+     * @return upper object
+     * @exception IllegalStateException if the array is already empty
+     */
     public T pop() {
         if(curIndex == 0){
             throw new IllegalStateException("The Array is already empty");

@@ -6,6 +6,11 @@ public class ResizableStack<T> {
     private int size;
     private int curIndex;//Index of next spot
 
+    /**
+     * Initialzies a new Resizable, with given size
+     * @param pSize The starting length of the array
+     * @exception IllegalArgumentException if the size is negative
+     */
     public ResizableStack(int pSize) {
         if(pSize >= 0){
             curIndex = 0;
@@ -17,6 +22,10 @@ public class ResizableStack<T> {
         }
     }
 
+    /**
+     * Pushes a Object T onto the stack and enlarges it if needed
+     * @param x Object to push
+     */
     public void push(T x) {
         System.out.println(array.length);
         if(curIndex == size){
@@ -32,6 +41,11 @@ public class ResizableStack<T> {
         }
     }
 
+    /**
+     * Pops/Remvoes and returns the upper object of the stack
+     * @return upper object
+     * @exception IllegalStateException if the array is already empty
+     */
     public T pop() {
         if(curIndex == 0){
             throw new IllegalStateException("The Array is already empty");
@@ -42,7 +56,11 @@ public class ResizableStack<T> {
         }
     }
 
+    /**
+     * Simple getter for array.lengths
+     * @return Current size of the array
+     */
     public int size(){
-        return size;
+        return array.length;
     }
 }

@@ -16,6 +16,10 @@ public class Main {
         test2.push("Test");
         test2.push("Test");
         test2.push("Test");
-        test2.push("Test");
+        test2.push("Test1");
+
+        System.out.println(test2.pop());
+        System.out.println(test2.pop());
+        System.out.println(test2.pop());
     }
 }
