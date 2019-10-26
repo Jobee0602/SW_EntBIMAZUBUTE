@@ -63,4 +63,8 @@ public class ResizableStack<T> {
     public int size(){
         return array.length;
     }
+
+    public int getIndex() {
+        return curIndex;
+    }
 }

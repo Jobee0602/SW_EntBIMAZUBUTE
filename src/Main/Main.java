@@ -10,13 +10,17 @@ public class Main {
 
         test2 = new ResizableStack<String>(5);
         test2.push("Test");
+        System.out.println(test2.getIndex());
+        test2.push("Test");
+        test2.push("Test");
+        System.out.println(test2.getIndex());
         test2.push("Test");
         test2.push("Test");
         test2.push("Test");
-        test2.push("Test");
-        test2.push("Test");
+        System.out.println("index: "+test2.getIndex());
         test2.push("Test");
         test2.push("Test1");
+
 
         System.out.println(test2.pop());
         System.out.println(test2.pop());
