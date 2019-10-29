@@ -20,7 +20,7 @@ class TicTacToeTest {
     @Test
     void isBoardEmpty() {
         TicTacToe game = new TicTacToe();
-        game.board[1][1] = TicTacToe.Player.O;
+        game.setBoard(1,1,TicTacToe.Player.O);
         assertFalse(game.isBoardEmpty());
     }
 

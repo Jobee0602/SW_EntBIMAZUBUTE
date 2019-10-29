@@ -3,13 +3,13 @@ package TicTacToe;
 public class TicTacToe {
     private int ROWS = 3;
     private int COLS = 3;
-    public Player[][] board; //board[row][col]
+    private Player[][] board; //board[row][col]
     public enum Player {
         Unknown, X, O
     }
 
-    private Player currentPlayer;
-    private Player winner;
+    private Player currentPlayer = Player.X;
+    private Player winner = Player.Unknown;
 
     public TicTacToe() {
         initialiazeBoard();
@@ -36,6 +36,7 @@ public class TicTacToe {
         catch (Exception e){
             throw new ArrayIndexOutOfBoundsException("The board accepts values between 0 and 2");
         }
+
     }
 
     public boolean isBoardEmpty() {
@@ -51,22 +52,80 @@ public class TicTacToe {
     }
 
     public boolean isGameWon() {
-        return false; //not ready
+        //Determines vertical win
+        for(int rows = 0; rows < 3; rows++){
+            if(board[rows][0] == board[rows][1] && board[rows][0] == board[rows][2]){
+                winner = board[rows][0];
+                return true;
+            }
+        }
+
+        //Determines horizontal win
+        for(int cols = 0; cols < 3; cols++){
+            if(board[0][cols] == board[1][cols] && board[0][cols] == board[2][cols]){
+                winner = board[cols][0];
+                return true;
+            }
+        }
+
+        //Determines diagonal win
+        if((board[0][0] == board[1][1] && board[0][0] == board[2][2]) || (board[2][0] == board[1][1] && board[2][0] == board[0][2])){
+            winner = board[1][1];
+            return true;
+        }
+        return false;
     }
 
     public boolean isDraw() {
-        return false; //not ready
+        if(isGameOver() && !isGameWon()){
+            return true;
+        }
+        return false;
     }
 
     public boolean isGameOver() {
-        return false; //not ready
+        boolean finished = true;
+        for(int rows = 0; rows < 3; rows++){
+            for(int cols = 0; cols < 3; cols++){
+                if(board[rows][cols] == Player.Unknown){
+                    finished = false;
+                }
+            }
+        }
+        return finished;
     }
 
     public Player getCurrentPlayer() {
-        return null; //not ready
+        return currentPlayer;
     }
 
     public Player getWinner() {
-        return null; //not ready
+        return winner;
+    }
+
+    public void outputBoard(){
+        for(int rows = 0; rows < 3; rows++){
+            for(int cols = 0; cols < 3; cols++){
+                switch(board[rows][cols]){
+                    case Unknown: System.out.print(" - "); break;
+                    case O: System.out.print(" O "); break;
+                    case X: System.out.print(" X "); break;
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public Player getBoard(int row, int col){
+        return board[row][col];
+    }
+
+    /**
+     * Attention! No use except for testing
+     * @param row
+     * @param col
+     */
+    public void setBoard(int row, int col, Player pl){
+        board[row][col] = pl;
     }
 }
