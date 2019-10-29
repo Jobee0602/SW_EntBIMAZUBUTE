@@ -1,6 +1,7 @@
 package TicTacToe;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import TicTacToe.TicTacToe;
@@ -26,6 +27,7 @@ public class Windows extends JFrame{
         game = pGame;
         this.setVisible(true);
         setSize(300,300);
+        setResizable(false);
         add(panel1);
         createButtons();
     }
@@ -115,11 +117,23 @@ public class Windows extends JFrame{
     }
 
     private void gameChecker(){
+        JPanel panel2 = new JPanel();
+        panel2.setSize(panel1.getSize());
+        panel2.setLayout(new BorderLayout());
+
         if(game.isGameWon()){
             System.out.println(game.getWinner() + " won");
+            panel2.add(new JLabel("   "+game.getWinner() + " won! Wuhu, FUN"), BorderLayout.CENTER);
+            panel2.setVisible(true);
+            this.add(panel2);
+            panel1.setVisible(false);
         }
         else if(game.isDraw()){
-            System.out.println("Its a draw");
+            System.out.println(game.getWinner() + " won");
+            panel2.add(new JLabel("     It is a draw!"), BorderLayout.CENTER);
+            panel2.setVisible(true);
+            this.add(panel2);
+            panel1.setVisible(false);
         }
     }
 }

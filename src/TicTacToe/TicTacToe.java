@@ -26,17 +26,24 @@ public class TicTacToe {
     }
 
     public void play(int row, int col) {
-        try{
-            switch(currentPlayer){
-                case X: board[row][col] = Player.X; currentPlayer = Player.O; break;
-                case O: board[row][col] = Player.O; currentPlayer = Player.X; break;
-                default: throw new IllegalStateException("There is no current Player");
+        if(board[row][col]==Player.Unknown) {
+            try {
+                switch (currentPlayer) {
+                    case X:
+                        board[row][col] = Player.X;
+                        currentPlayer = Player.O;
+                        break;
+                    case O:
+                        board[row][col] = Player.O;
+                        currentPlayer = Player.X;
+                        break;
+                    default:
+                        throw new IllegalStateException("There is no current Player");
+                }
+            } catch (Exception e) {
+                throw new ArrayIndexOutOfBoundsException("The board accepts values between 0 and 2");
             }
         }
-        catch (Exception e){
-            throw new ArrayIndexOutOfBoundsException("The board accepts values between 0 and 2");
-        }
-
     }
 
     public boolean isBoardEmpty() {
@@ -56,22 +63,31 @@ public class TicTacToe {
         for(int rows = 0; rows < 3; rows++){
             if(board[rows][0] == board[rows][1] && board[rows][0] == board[rows][2]){
                 winner = board[rows][0];
-                return true;
+                if(board[rows][0] != Player.Unknown){
+                    System.out.println("Statement1");
+                    return true;
+                }
             }
         }
 
         //Determines horizontal win
         for(int cols = 0; cols < 3; cols++){
             if(board[0][cols] == board[1][cols] && board[0][cols] == board[2][cols]){
-                winner = board[cols][0];
-                return true;
+                winner = board[0][cols];
+                if(board[0][cols] != Player.Unknown){
+                    System.out.println("Statement2");
+                    return true;
+                }
             }
         }
 
         //Determines diagonal win
         if((board[0][0] == board[1][1] && board[0][0] == board[2][2]) || (board[2][0] == board[1][1] && board[2][0] == board[0][2])){
             winner = board[1][1];
-            return true;
+            if(board[1][1] != Player.Unknown){
+                System.out.println("Statement3");
+                return true;
+            }
         }
         return false;
     }
