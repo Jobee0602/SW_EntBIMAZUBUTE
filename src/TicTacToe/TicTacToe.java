@@ -139,7 +139,7 @@ public class TicTacToe {
     /**
      * Attention! No use except for testing
      * @param row
-     * @param col
+     * @param col Col
      */
     public void setBoard(int row, int col, Player pl){
         board[row][col] = pl;
