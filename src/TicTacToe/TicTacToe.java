@@ -1,6 +1,11 @@
 package TicTacToe;
 
 public class TicTacToe {
+
+    /**
+     * Team: Nils Lütke, Basel Alwani, Laura Weber, Benny Burkert
+     */
+
     private int ROWS = 3;
     private int COLS = 3;
     private Player[][] board; //board[row][col]

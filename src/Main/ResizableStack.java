@@ -2,6 +2,10 @@ package Main;
 
 public class ResizableStack<T> {
 
+    /**
+     * Team: Nils Lütke, Basel Alwani, Laura Weber, Benny Burkert
+     */
+
     private T[] array;
     private int size;
     private int curIndex;//Index of next spot

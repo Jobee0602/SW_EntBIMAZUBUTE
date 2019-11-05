@@ -5,6 +5,10 @@ import java.lang.reflect.Array;
 
 public class StackArray<T> {
 
+    /**
+     * Team: Nils Lütke, Basel Alwani, Laura Weber, Benny Burkert
+     */
+
     private T[] array;
     private int size;
     private int curIndex;//Index of next spot
