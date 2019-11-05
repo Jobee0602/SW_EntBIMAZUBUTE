@@ -22,7 +22,6 @@ public class TicTacToe {
                 board[rows][cols] = Player.Unknown;
             }
         }
-        System.out.println("Board initialized.");
     }
 
     public void play(int row, int col) {
@@ -64,7 +63,6 @@ public class TicTacToe {
             if(board[rows][0] == board[rows][1] && board[rows][0] == board[rows][2]){
                 winner = board[rows][0];
                 if(board[rows][0] != Player.Unknown){
-                    System.out.println("Statement1");
                     return true;
                 }
             }
@@ -75,7 +73,6 @@ public class TicTacToe {
             if(board[0][cols] == board[1][cols] && board[0][cols] == board[2][cols]){
                 winner = board[0][cols];
                 if(board[0][cols] != Player.Unknown){
-                    System.out.println("Statement2");
                     return true;
                 }
             }
@@ -85,7 +82,6 @@ public class TicTacToe {
         if((board[0][0] == board[1][1] && board[0][0] == board[2][2]) || (board[2][0] == board[1][1] && board[2][0] == board[0][2])){
             winner = board[1][1];
             if(board[1][1] != Player.Unknown){
-                System.out.println("Statement3");
                 return true;
             }
         }
@@ -139,7 +135,7 @@ public class TicTacToe {
     /**
      * Attention! No use except for testing
      * @param row
-     * @param col Col
+     * @param col
      */
     public void setBoard(int row, int col, Player pl){
         board[row][col] = pl;
